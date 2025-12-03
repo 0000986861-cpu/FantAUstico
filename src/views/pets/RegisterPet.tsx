@@ -2,7 +2,7 @@ import { useState, type ChangeEvent } from 'react';
 import { Form, Formik } from 'formik';
 import * as Yup from 'yup';
 import api from '../../service/api';
-import type { PetInput, ReportInput } from '../../api/firestore';
+import type { PetInput, PetStatus, PetType, ReportInput } from '../../api/firestore';
 
 const initialValues = {
   type: 'perdido',
@@ -65,7 +65,12 @@ const RegisterPet = () => {
                 setUploading(true);
                 imageUrl = await api.uploadPetImage(selectedFile);
               }
-              const payload: PetInput = { ...values, imageUrl };
+              const payload: PetInput = {
+                ...values,
+                type: values.type as PetType,
+                status: values.status as PetStatus,
+                imageUrl,
+              };
               const isCase = values.type === 'perdido' || values.type === 'denuncia';
 
               if (isCase) {
@@ -74,8 +79,8 @@ const RegisterPet = () => {
                   reason: values.type === 'denuncia' ? 'Denúncia de maus tratos' : 'Pet perdido',
                   description: values.description,
                   contact: values.contact,
-                  type: values.type,
-                  status: values.status,
+                  type: values.type as PetType,
+                  status: values.status as PetStatus,
                   name: values.name,
                   species: values.species,
                   breed: values.breed,

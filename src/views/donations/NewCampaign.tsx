@@ -58,7 +58,6 @@ const NewCampaign = () => {
               const payload: CampaignInput = {
                 ...values,
                 goal: Number(values.goal),
-                amountRaised: 0,
                 imageUrl,
               };
               await api.createCampaign(payload);

@@ -11,9 +11,9 @@ import {
 } from 'firebase/firestore';
 import { getDownloadURL, getStorage, ref, uploadBytes } from 'firebase/storage';
 
-type PetType = 'perdido' | 'encontrado' | 'adocao' | 'denuncia';
-type PetStatus = 'perdido' | 'encontrado' | 'para_adocao';
-type CampaignStatus = 'ativa' | 'pausada' | 'encerrada';
+export type PetType = 'perdido' | 'encontrado' | 'adocao' | 'denuncia';
+export type PetStatus = 'perdido' | 'encontrado' | 'para_adocao';
+export type CampaignStatus = 'ativa' | 'pausada' | 'encerrada';
 
 export interface PetInput {
   type: PetType;
