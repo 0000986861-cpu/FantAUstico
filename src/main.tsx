@@ -4,6 +4,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import './index.css';
 import Home from './views/home/Home';
+import Adoption from './views/pets/Adoption';
 import Campaigns from './views/donations/Campaigns';
 import NewCampaign from './views/donations/NewCampaign';
 import RegisterPet from './views/pets/RegisterPet';
@@ -18,6 +19,10 @@ const router = createBrowserRouter([
       {
         path: '',
         element: <Home />,
+      },
+      {
+        path: 'adocao',
+        element: <Adoption />,
       },
       {
         path: 'registrar',
